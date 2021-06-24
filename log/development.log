@@ -394,7 +394,7 @@ Completed 200 OK in 40ms (Views: 39.1ms | Allocations: 4445)
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to CreateFriends (20210524061241)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "friends" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "twitter" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "friends" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "colour" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210524061241"]]
   [1m[36mTRANSACTION (117.5ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
@@ -467,10 +467,10 @@ Completed 200 OK in 145ms (Views: 136.3ms | ActiveRecord: 1.0ms | Allocations: 1
 
 Started POST "/friends" for ::1 at 2021-05-24 12:07:00 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@codemy.com", "phone"=>"111 222 3333", "twitter"=>"@flatplanet"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@codemy.com", "phone"=>"111 222 3333", "colour"=>"@flatplanet"}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.8ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Elder"], ["email", "john@codemy.com"], ["phone", "111 222 3333"], ["twitter", "@flatplanet"], ["created_at", "2021-05-24 06:37:01.006216"], ["updated_at", "2021-05-24 06:37:01.006216"]]
+  [1m[36mFriend Create (1.8ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Elder"], ["email", "john@codemy.com"], ["phone", "111 222 3333"], ["colour", "@flatplanet"], ["created_at", "2021-05-24 06:37:01.006216"], ["updated_at", "2021-05-24 06:37:01.006216"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (76.8ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -519,10 +519,10 @@ Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.0ms | Allocations: 592
 
 Started POST "/friends" for ::1 at 2021-05-24 12:08:32 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Bob", "last_name"=>"Fakename", "email"=>"bob@fakename.com", "phone"=>"222 333 4444", "twitter"=>"@bob"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Bob", "last_name"=>"Fakename", "email"=>"bob@fakename.com", "phone"=>"222 333 4444", "colour"=>"@bob"}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bob"], ["last_name", "Fakename"], ["email", "bob@fakename.com"], ["phone", "222 333 4444"], ["twitter", "@bob"], ["created_at", "2021-05-24 06:38:32.457304"], ["updated_at", "2021-05-24 06:38:32.457304"]]
+  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bob"], ["last_name", "Fakename"], ["email", "bob@fakename.com"], ["phone", "222 333 4444"], ["colour", "@bob"], ["created_at", "2021-05-24 06:38:32.457304"], ["updated_at", "2021-05-24 06:38:32.457304"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (52.9ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -827,10 +827,10 @@ Completed 200 OK in 53ms (Views: 51.1ms | ActiveRecord: 0.0ms | Allocations: 671
 
 Started POST "/friends" for ::1 at 2021-05-24 12:57:42 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Tina", "last_name"=>"Friend", "email"=>"tina@friend.com", "phone"=>"333 444 5555", "twitter"=>"@tina"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Tina", "last_name"=>"Friend", "email"=>"tina@friend.com", "phone"=>"333 444 5555", "colour"=>"@tina"}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.4ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tina"], ["last_name", "Friend"], ["email", "tina@friend.com"], ["phone", "333 444 5555"], ["twitter", "@tina"], ["created_at", "2021-05-24 07:27:42.433987"], ["updated_at", "2021-05-24 07:27:42.433987"]]
+  [1m[36mFriend Create (1.4ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tina"], ["last_name", "Friend"], ["email", "tina@friend.com"], ["phone", "333 444 5555"], ["colour", "@tina"], ["created_at", "2021-05-24 07:27:42.433987"], ["updated_at", "2021-05-24 07:27:42.433987"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (60.3ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -2607,10 +2607,10 @@ Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 0.0ms | Allocations: 552
 
 Started POST "/friends" for ::1 at 2021-05-24 14:21:44 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"tron", "last_name"=>"", "email"=>"", "phone"=>"", "twitter"=>""}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"tron", "last_name"=>"", "email"=>"", "phone"=>"", "colour"=>""}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (7.0ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "tron"], ["last_name", ""], ["email", ""], ["phone", ""], ["twitter", ""], ["created_at", "2021-05-24 08:51:44.392836"], ["updated_at", "2021-05-24 08:51:44.392836"]]
+  [1m[36mFriend Create (7.0ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "tron"], ["last_name", ""], ["email", ""], ["phone", ""], ["colour", ""], ["created_at", "2021-05-24 08:51:44.392836"], ["updated_at", "2021-05-24 08:51:44.392836"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (85.4ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -2687,12 +2687,12 @@ Completed 200 OK in 52ms (Views: 49.5ms | Allocations: 7167)
 
 Started POST "/friends" for ::1 at 2021-05-24 14:31:12 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "twitter"=>""}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "colour"=>""}, "commit"=>"Create Friend"}
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["twitter", ""], ["created_at", "2021-05-24 09:01:12.497340"], ["updated_at", "2021-05-24 09:01:12.497340"]]
+  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["colour", ""], ["created_at", "2021-05-24 09:01:12.497340"], ["updated_at", "2021-05-24 09:01:12.497340"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (49.2ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -2771,10 +2771,10 @@ Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 0.0ms | Allocations: 529
 
 Started POST "/friends" for ::1 at 2021-05-24 14:31:35 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "twitter"=>""}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "colour"=>""}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["twitter", ""], ["created_at", "2021-05-24 09:01:35.190977"], ["updated_at", "2021-05-24 09:01:35.190977"]]
+  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["colour", ""], ["created_at", "2021-05-24 09:01:35.190977"], ["updated_at", "2021-05-24 09:01:35.190977"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (58.7ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -2961,10 +2961,10 @@ Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms | Allocations: 529
 
 Started POST "/friends" for ::1 at 2021-05-24 14:34:29 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "twitter"=>""}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "phone"=>"", "colour"=>""}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", ""], ["last_name", ""], ["email", ""], ["phone", ""], ["twitter", ""], ["created_at", "2021-05-24 09:04:29.533225"], ["updated_at", "2021-05-24 09:04:29.533225"]]
+  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", ""], ["last_name", ""], ["email", ""], ["phone", ""], ["colour", ""], ["created_at", "2021-05-24 09:04:29.533225"], ["updated_at", "2021-05-24 09:04:29.533225"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (66.4ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -3014,10 +3014,10 @@ Completed 200 OK in 51ms (Views: 50.7ms | ActiveRecord: 0.0ms | Allocations: 529
 
 Started POST "/friends" for ::1 at 2021-05-24 14:34:42 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "twitter"=>""}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"jam", "last_name"=>"", "email"=>"", "phone"=>"", "colour"=>""}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.1ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["twitter", ""], ["created_at", "2021-05-24 09:04:43.001779"], ["updated_at", "2021-05-24 09:04:43.001779"]]
+  [1m[36mFriend Create (1.1ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "jam"], ["last_name", ""], ["email", ""], ["phone", ""], ["colour", ""], ["created_at", "2021-05-24 09:04:43.001779"], ["updated_at", "2021-05-24 09:04:43.001779"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (52.5ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -3242,10 +3242,10 @@ Completed 200 OK in 74ms (Views: 71.7ms | ActiveRecord: 0.0ms | Allocations: 893
 
 Started POST "/friends" for ::1 at 2021-05-24 17:15:46 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Logan", "last_name"=>"W", "email"=>"logan@xmen.com", "phone"=>"+1-555-555-6555", "twitter"=>"@logan"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Logan", "last_name"=>"W", "email"=>"logan@xmen.com", "phone"=>"+1-555-555-6555", "colour"=>"@logan"}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.9ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Logan"], ["last_name", "W"], ["email", "logan@xmen.com"], ["phone", "+1-555-555-6555"], ["twitter", "@logan"], ["created_at", "2021-05-24 11:45:46.496992"], ["updated_at", "2021-05-24 11:45:46.496992"]]
+  [1m[36mFriend Create (1.9ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Logan"], ["last_name", "W"], ["email", "logan@xmen.com"], ["phone", "+1-555-555-6555"], ["colour", "@logan"], ["created_at", "2021-05-24 11:45:46.496992"], ["updated_at", "2021-05-24 11:45:46.496992"]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (51.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -3298,7 +3298,7 @@ Completed 200 OK in 49ms (Views: 46.1ms | ActiveRecord: 0.2ms | Allocations: 620
 
 Started PATCH "/friends/9" for ::1 at 2021-05-24 17:16:10 +0530
 Processing by FriendsController#update as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Logan", "last_name"=>"W", "email"=>"logan@xmen.com", "phone"=>"555-555-6555", "twitter"=>"@logan"}, "commit"=>"Update Friend", "id"=>"9"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Logan", "last_name"=>"W", "email"=>"logan@xmen.com", "phone"=>"555-555-6555", "colour"=>"@logan"}, "commit"=>"Update Friend", "id"=>"9"}
   [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
   ↳ app/controllers/friends_controller.rb:62:in `set_friend'
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
@@ -5301,7 +5301,7 @@ Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 
   
 ActionView::Template::Error (undefined local variable or method `id' for #<ActionView::Base:0x0000000000a528>
 Did you mean?  @@id):
-    31:     <%= form.text_field :twitter, class:"form-control", placeholder:"twitter" %>
+    31:     <%= form.text_field :colour, class:"form-control", placeholder:"colour" %>
     32:   </div>
     33:   <div class="field form-group">    
     34:     <%= form.text_field :user-id, class:"form-control", placeholder:"User Id" %>
@@ -5340,7 +5340,7 @@ Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 
   
 ActionView::Template::Error (undefined local variable or method `id' for #<ActionView::Base:0x0000000000ab40>
 Did you mean?  @@id):
-    31:     <%= form.text_field :twitter, class:"form-control", placeholder:"twitter" %>
+    31:     <%= form.text_field :colour, class:"form-control", placeholder:"colour" %>
     32:   </div>
     33:   <div class="field form-group">    
     34:     <%= form.text_field :user-id, class:"form-control", placeholder:"User Id" %>
@@ -5448,7 +5448,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
   </div>
 
   <div class="field form-group">    
-    <%= form.text_field :twitter, class:"form-control", placeholder:"twitter" %>
+    <%= form.text_field :colour, class:"form-control", placeholder:"colour" %>
   </div>
   <div class="field form-group">    
     <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id, type: : hidden %>
@@ -5491,7 +5491,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 28:      </div>
 29:    
 30:      <div class="field form-group">    
-31:        <%= form.text_field :twitter, class:"form-control", placeholder:"twitter" %>
+31:        <%= form.text_field :colour, class:"form-control", placeholder:"colour" %>
 32:      </div>
 33:      <div class="field form-group">    
 34:        <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id, type: : hidden %>
@@ -5526,7 +5526,7 @@ Completed 200 OK in 110ms (Views: 106.6ms | ActiveRecord: 0.2ms | Allocations: 1
 
 Started POST "/friends" for ::1 at 2021-05-27 11:13:14 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@elder.com", "phone"=>"5256256515", "twitter"=>"@truejohn", "user_id"=>"4"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@elder.com", "phone"=>"5256256515", "colour"=>"@truejohn", "user_id"=>"4"}, "commit"=>"Create Friend"}
 [31mUnpermitted parameter: :user_id[0m
   Rendering layout layouts/application.html.erb
   Rendering friends/new.html.erb within layouts/application
@@ -5573,12 +5573,12 @@ Completed 200 OK in 68ms (Views: 61.2ms | ActiveRecord: 1.1ms | Allocations: 100
 
 Started POST "/friends" for ::1 at 2021-05-27 11:17:46 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@elder.com", "phone"=>"5555552236", "twitter"=>"@truejohn", "user_id"=>"4"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"John", "last_name"=>"Elder", "email"=>"john@elder.com", "phone"=>"5555552236", "colour"=>"@truejohn", "user_id"=>"4"}, "commit"=>"Create Friend"}
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
-  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Elder"], ["email", "john@elder.com"], ["phone", "5555552236"], ["twitter", "@truejohn"], ["created_at", "2021-05-27 05:47:46.629759"], ["updated_at", "2021-05-27 05:47:46.629759"], ["user_id", 4]]
+  [1m[36mFriend Create (1.3ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Elder"], ["email", "john@elder.com"], ["phone", "5555552236"], ["colour", "@truejohn"], ["created_at", "2021-05-27 05:47:46.629759"], ["updated_at", "2021-05-27 05:47:46.629759"], ["user_id", 4]]
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
   [1m[36mTRANSACTION (82.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:27:in `block in create'
@@ -5806,7 +5806,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
       <th>Last name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Twitter</th>
+      <th>colour</th>
       <th>User Id </th>      
       <th colspan="3"></th>
     </tr>
@@ -5819,7 +5819,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
         <td><%= friend.last_name %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
+        <td><%= friend.colour %></td>
         <td><%= friend.user_id%></td>        
         
         <td><%= link_to 'Show', friend %></td>                
@@ -5853,7 +5853,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 9:          <th>Last name</th>
 10:          <th>Email</th>
 11:          <th>Phone</th>
-12:          <th>Twitter</th>
+12:          <th>colour</th>
 13:          <th>User Id </th>      
 14:          <th colspan="3"></th>
 15:        </tr>
@@ -5866,7 +5866,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 22:            <td><%= friend.last_name %></td>
 23:            <td><%= friend.email %></td>
 24:            <td><%= friend.phone %></td>
-25:            <td><%= friend.twitter %></td>
+25:            <td><%= friend.colour %></td>
 26:            <td><%= friend.user_id%></td>        
 27:            
 28:            <td><%= link_to 'Show', friend %></td>                
@@ -5919,7 +5919,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
       <th>Last name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Twitter</th>
+      <th>colour</th>
       <th>User Id </th>      
       <th colspan="3"></th>
     </tr>
@@ -5932,7 +5932,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
         <td><%= friend.last_name %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
+        <td><%= friend.colour %></td>
         <td><%= friend.user_id%></td>
         
         <td><%= link_to 'Show', friend %></td>                
@@ -5966,7 +5966,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 9:          <th>Last name</th>
 10:          <th>Email</th>
 11:          <th>Phone</th>
-12:          <th>Twitter</th>
+12:          <th>colour</th>
 13:          <th>User Id </th>      
 14:          <th colspan="3"></th>
 15:        </tr>
@@ -5979,7 +5979,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 22:            <td><%= friend.last_name %></td>
 23:            <td><%= friend.email %></td>
 24:            <td><%= friend.phone %></td>
-25:            <td><%= friend.twitter %></td>
+25:            <td><%= friend.colour %></td>
 26:            <td><%= friend.user_id%></td>
 27:            
 28:            <td><%= link_to 'Show', friend %></td>                
@@ -6262,11 +6262,11 @@ Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.2ms | Allocations: 670
 
 Started POST "/friends" for ::1 at 2021-05-27 12:47:58 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"covaxine", "last_name"=>"vaccine", "email"=>"covaxine.vaccine@corona.com", "phone"=>"565655455", "twitter"=>"@truecovaxine", "user_id"=>"4"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"covaxine", "last_name"=>"vaccine", "email"=>"covaxine.vaccine@corona.com", "phone"=>"565655455", "colour"=>"@truecovaxine", "user_id"=>"4"}, "commit"=>"Create Friend"}
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
-  [1m[36mFriend Create (10.5ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "covaxine"], ["last_name", "vaccine"], ["email", "covaxine.vaccine@corona.com"], ["phone", "565655455"], ["twitter", "@truecovaxine"], ["created_at", "2021-05-27 07:17:58.467404"], ["updated_at", "2021-05-27 07:17:58.467404"], ["user_id", 4]]
+  [1m[36mFriend Create (10.5ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "covaxine"], ["last_name", "vaccine"], ["email", "covaxine.vaccine@corona.com"], ["phone", "565655455"], ["colour", "@truecovaxine"], ["created_at", "2021-05-27 07:17:58.467404"], ["updated_at", "2021-05-27 07:17:58.467404"], ["user_id", 4]]
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
   [1m[36mTRANSACTION (73.8ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
@@ -6849,11 +6849,11 @@ Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.2ms | Allocations: 787
 
 Started POST "/friends" for ::1 at 2021-05-27 12:57:27 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"covishield", "last_name"=>"vaccine", "email"=>"covishield@vaccine.com", "phone"=>"8851664422", "twitter"=>"@truecovishield", "user_id"=>"5"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"covishield", "last_name"=>"vaccine", "email"=>"covishield@vaccine.com", "phone"=>"8851664422", "colour"=>"@truecovishield", "user_id"=>"5"}, "commit"=>"Create Friend"}
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
-  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "covishield"], ["last_name", "vaccine"], ["email", "covishield@vaccine.com"], ["phone", "8851664422"], ["twitter", "@truecovishield"], ["created_at", "2021-05-27 07:27:27.496554"], ["updated_at", "2021-05-27 07:27:27.496554"], ["user_id", 5]]
+  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "covishield"], ["last_name", "vaccine"], ["email", "covishield@vaccine.com"], ["phone", "8851664422"], ["colour", "@truecovishield"], ["created_at", "2021-05-27 07:27:27.496554"], ["updated_at", "2021-05-27 07:27:27.496554"], ["user_id", 5]]
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
   [1m[36mTRANSACTION (76.6ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
@@ -6988,11 +6988,11 @@ Completed 200 OK in 59ms (Views: 50.0ms | ActiveRecord: 1.0ms | Allocations: 845
 
 Started POST "/friends" for ::1 at 2021-05-27 17:42:48 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Sputnik", "last_name"=>"Russian", "email"=>"Sputnik@russian.com", "phone"=>"5641239", "twitter"=>"@russiansputnik", "user_id"=>"5"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Sputnik", "last_name"=>"Russian", "email"=>"Sputnik@russian.com", "phone"=>"5641239", "colour"=>"@russiansputnik", "user_id"=>"5"}, "commit"=>"Create Friend"}
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
-  [1m[36mFriend Create (1.1ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Sputnik"], ["last_name", "Russian"], ["email", "Sputnik@russian.com"], ["phone", "5641239"], ["twitter", "@russiansputnik"], ["created_at", "2021-05-27 12:12:48.235212"], ["updated_at", "2021-05-27 12:12:48.235212"], ["user_id", 5]]
+  [1m[36mFriend Create (1.1ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Sputnik"], ["last_name", "Russian"], ["email", "Sputnik@russian.com"], ["phone", "5641239"], ["colour", "@russiansputnik"], ["created_at", "2021-05-27 12:12:48.235212"], ["updated_at", "2021-05-27 12:12:48.235212"], ["user_id", 5]]
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
   [1m[36mTRANSACTION (70.3ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
@@ -7053,11 +7053,11 @@ Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.2ms | Allocations: 670
 
 Started POST "/friends" for ::1 at 2021-05-27 17:44:23 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "twitter"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "colour"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Create Friend"}
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
-  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Astrazenica"], ["last_name", "UK"], ["email", "astrazenica@uk.com"], ["phone", "84813218"], ["twitter", "@ukastrazenica"], ["created_at", "2021-05-27 12:14:23.742185"], ["updated_at", "2021-05-27 12:14:23.742185"], ["user_id", 5]]
+  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Astrazenica"], ["last_name", "UK"], ["email", "astrazenica@uk.com"], ["phone", "84813218"], ["colour", "@ukastrazenica"], ["created_at", "2021-05-27 12:14:23.742185"], ["updated_at", "2021-05-27 12:14:23.742185"], ["user_id", 5]]
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
   [1m[36mTRANSACTION (83.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
@@ -7102,7 +7102,7 @@ Completed 200 OK in 66ms (Views: 53.3ms | ActiveRecord: 0.8ms | Allocations: 826
 
 Started PATCH "/friends/14" for ::1 at 2021-05-27 17:44:31 +0530
 Processing by FriendsController#update as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "twitter"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Update Friend", "id"=>"14"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "colour"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Update Friend", "id"=>"14"}
   [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
   ↳ app/controllers/friends_controller.rb:69:in `set_friend'
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
@@ -7149,7 +7149,7 @@ Completed 200 OK in 54ms (Views: 45.2ms | ActiveRecord: 0.8ms | Allocations: 794
 
 Started PATCH "/friends/14" for ::1 at 2021-05-27 17:44:34 +0530
 Processing by FriendsController#update as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "twitter"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Update Friend", "id"=>"14"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Astrazenica", "last_name"=>"UK", "email"=>"astrazenica@uk.com", "phone"=>"84813218", "colour"=>"@ukastrazenica", "user_id"=>"5"}, "commit"=>"Update Friend", "id"=>"14"}
   [1m[36mFriend Load (0.2ms)[0m  [1m[34mSELECT "friends".* FROM "friends" WHERE "friends"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
   ↳ app/controllers/friends_controller.rb:69:in `set_friend'
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
@@ -7214,11 +7214,11 @@ Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 0.2ms | Allocations: 670
 
 Started POST "/friends" for ::1 at 2021-05-27 17:45:55 +0530
 Processing by FriendsController#create as HTML
-  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Novavax", "last_name"=>"USA", "email"=>"novavax@usa.com", "phone"=>"51184545588532", "twitter"=>"@usanovavax", "user_id"=>"5"}, "commit"=>"Create Friend"}
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Novavax", "last_name"=>"USA", "email"=>"novavax@usa.com", "phone"=>"51184545588532", "colour"=>"@usanovavax", "user_id"=>"5"}, "commit"=>"Create Friend"}
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
-  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "twitter", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Novavax"], ["last_name", "USA"], ["email", "novavax@usa.com"], ["phone", "51184545588532"], ["twitter", "@usanovavax"], ["created_at", "2021-05-27 12:15:55.126698"], ["updated_at", "2021-05-27 12:15:55.126698"], ["user_id", 5]]
+  [1m[36mFriend Create (1.2ms)[0m  [1m[32mINSERT INTO "friends" ("first_name", "last_name", "email", "phone", "colour", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Novavax"], ["last_name", "USA"], ["email", "novavax@usa.com"], ["phone", "51184545588532"], ["colour", "@usanovavax"], ["created_at", "2021-05-27 12:15:55.126698"], ["updated_at", "2021-05-27 12:15:55.126698"], ["user_id", 5]]
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
   [1m[36mTRANSACTION (49.7ms)[0m  [1m[36mcommit transaction[0m
   ↳ app/controllers/friends_controller.rb:31:in `block in create'
@@ -9429,3 +9429,1078 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 264ms (Views: 248.0ms | ActiveRecord: 2.0ms | Allocations: 16522)
 
 
+  [1m[35m (536.3ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (376.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT GET_LOCK('5701721441292216165', 0)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateFriends (20210524061241)
+  [1m[35m (391.7ms)[0m  [1m[35mCREATE TABLE `friends` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `email` varchar(255), `phone` varchar(255), `colour` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210524061241')[0m
+  [1m[36mTRANSACTION (57.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUsers (20210524132445)
+  [1m[35m (414.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (357.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (256.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210524132445')[0m
+  [1m[36mTRANSACTION (84.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToFriends (20210525151552)
+  [1m[35m (578.3ms)[0m  [1m[35mALTER TABLE `friends` ADD `user_id` int[0m
+  [1m[35m (307.4ms)[0m  [1m[35mCREATE INDEX `index_friends_on_user_id` ON `friends` (`user_id`)[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20210525151552')[0m
+  [1m[36mTRANSACTION (51.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-06-24 04:08:07.029940', '2021-06-24 04:08:07.029940')[0m
+  [1m[36mTRANSACTION (59.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('5701721441292216165')[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-06-24 09:41:06 +0530
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 577)
+  Rendered layout layouts/application.html.erb (Duration: 388.1ms | Allocations: 41426)
+Completed 200 OK in 537ms (Views: 429.4ms | ActiveRecord: 0.0ms | Allocations: 47149)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:41:13 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 629)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 199.8ms | Allocations: 11353)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 175)
+  Rendered layout layouts/application.html.erb (Duration: 247.6ms | Allocations: 15881)
+Completed 200 OK in 281ms (Views: 258.7ms | ActiveRecord: 4.9ms | Allocations: 23185)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:41:16 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"covishield@vaccine.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'covishield@vaccine.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 19ms (ActiveRecord: 2.2ms | Allocations: 2257)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"covishield@vaccine.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 151)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1057)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 140)
+  Rendered layout layouts/application.html.erb (Duration: 65.8ms | Allocations: 5664)
+Completed 200 OK in 375ms (Views: 67.3ms | ActiveRecord: 0.0ms | Allocations: 7602)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:41:18 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"covishield@vaccine.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'covishield@vaccine.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 7ms (ActiveRecord: 2.0ms | Allocations: 1532)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"covishield@vaccine.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 151)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1051)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 140)
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 5659)
+Completed 200 OK in 295ms (Views: 50.1ms | ActiveRecord: 0.0ms | Allocations: 6319)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2021-06-24 09:41:26 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 228)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 145)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 47.2ms | Allocations: 1938)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 175)
+  Rendered layout layouts/application.html.erb (Duration: 103.6ms | Allocations: 6527)
+Completed 200 OK in 111ms (Views: 110.5ms | ActiveRecord: 0.0ms | Allocations: 7886)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-06-24 09:43:35 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@gmail.com' LIMIT 1[0m
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('test@gmail.com', '$2a$12$Kje5z3IHEueXwf/XFpJkWeOA2.62kiEw6vcogmNCNWyrgCr4dVCDO', '2021-06-24 04:13:36.271767', '2021-06-24 04:13:36.271767')[0m
+  [1m[36mTRANSACTION (56.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 401ms (ActiveRecord: 63.3ms | Allocations: 10620)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-24 09:43:36 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.2ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  Rendered friends/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1803)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 189)
+  Rendered layouts/_alerts.html.erb (Duration: 0.5ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 59.7ms | Allocations: 6763)
+Completed 200 OK in 62ms (Views: 56.0ms | ActiveRecord: 4.8ms | Allocations: 7297)
+
+
+Started GET "/friends/new" for 127.0.0.1 at 2021-06-24 09:43:47 +0530
+Processing by FriendsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering friends/new.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 7.7ms | Allocations: 1393)
+  Rendered friends/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 1793)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 185)
+  Rendered layout layouts/application.html.erb (Duration: 62.0ms | Allocations: 6323)
+Completed 200 OK in 240ms (Views: 63.6ms | ActiveRecord: 7.1ms | Allocations: 19677)
+
+
+Started POST "/friends" for 127.0.0.1 at 2021-06-24 09:45:46 +0530
+Processing by FriendsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Banana ", "last_name"=>"banana", "email"=>"banana@gmail.com", "phone"=>"123", "colour"=>"yellow", "user_id"=>"1"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.3ms | Allocations: 2128)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'colour' for Friend.):
+  
+app/controllers/friends_controller.rb:29:in `create'
+Started GET "/" for 127.0.0.1 at 2021-06-24 09:47:13 +0530
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.4ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  Rendered friends/index.html.erb within layouts/application (Duration: 22.6ms | Allocations: 7848)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.9ms | Allocations: 580)
+  Rendered layout layouts/application.html.erb (Duration: 98.2ms | Allocations: 16979)
+Completed 200 OK in 134ms (Views: 100.3ms | ActiveRecord: 9.3ms | Allocations: 20788)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2021-06-24 09:47:44 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 77ms (ActiveRecord: 2.3ms | Allocations: 6930)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-24 09:47:44 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 117)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 162)
+  Rendered layouts/_alerts.html.erb (Duration: 0.8ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 83.4ms | Allocations: 5060)
+Completed 200 OK in 94ms (Views: 92.3ms | ActiveRecord: 0.0ms | Allocations: 5588)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:47:48 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 638)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 25.8ms | Allocations: 3236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 175)
+  Rendered layout layouts/application.html.erb (Duration: 81.0ms | Allocations: 7869)
+Completed 200 OK in 94ms (Views: 92.2ms | ActiveRecord: 0.0ms | Allocations: 9721)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:48:52 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 151)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1059)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 63.5ms | Allocations: 5682)
+Completed 200 OK in 66ms (Views: 65.1ms | ActiveRecord: 0.0ms | Allocations: 6405)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-06-24 09:49:22 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'test@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 331ms (ActiveRecord: 2.0ms | Allocations: 6836)
+
+
+Started GET "/" for 127.0.0.1 at 2021-06-24 09:49:22 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.5ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  Rendered friends/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1781)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 185)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layout layouts/application.html.erb (Duration: 69.3ms | Allocations: 6493)
+Completed 200 OK in 72ms (Views: 66.0ms | ActiveRecord: 4.8ms | Allocations: 7024)
+
+
+Started GET "/friends/new" for 127.0.0.1 at 2021-06-24 09:49:31 +0530
+Processing by FriendsController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering friends/new.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 2.5ms | Allocations: 1199)
+  Rendered friends/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1594)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 185)
+  Rendered layout layouts/application.html.erb (Duration: 64.4ms | Allocations: 6123)
+Completed 200 OK in 92ms (Views: 65.9ms | ActiveRecord: 6.9ms | Allocations: 16207)
+
+
+Started POST "/friends" for 127.0.0.1 at 2021-06-24 09:50:15 +0530
+Processing by FriendsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Banana", "last_name"=>"Banana", "email"=>"banana@gmail.com", "phone"=>"123", "colour"=>"yellow", "user_id"=>"1"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mFriend Create (2.5ms)[0m  [1m[32mINSERT INTO `friends` (`first_name`, `last_name`, `email`, `phone`, `colour`, `created_at`, `updated_at`, `user_id`) VALUES ('Banana', 'Banana', 'banana@gmail.com', '123', 'yellow', '2021-06-24 04:20:15.135881', '2021-06-24 04:20:15.135881', 1)[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (47.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/friends/1
+Completed 302 Found in 70ms (ActiveRecord: 54.4ms | Allocations: 4336)
+
+
+Started GET "/friends/1" for 127.0.0.1 at 2021-06-24 09:50:15 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFriend Load (2.0ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 18.1ms | Allocations: 1185)
+  Rendered layouts/_alerts.html.erb (Duration: 0.5ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 77.1ms | Allocations: 6094)
+Completed 200 OK in 87ms (Views: 75.4ms | ActiveRecord: 5.1ms | Allocations: 7562)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 09:50:20 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.6ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  Rendered friends/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 2967)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 180)
+  Rendered layout layouts/application.html.erb (Duration: 68.3ms | Allocations: 7555)
+Completed 200 OK in 70ms (Views: 61.6ms | ActiveRecord: 8.0ms | Allocations: 8085)
+
+
+Started GET "/friends/new" for 127.0.0.1 at 2021-06-24 09:50:48 +0530
+Processing by FriendsController#new as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering friends/new.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 1.6ms | Allocations: 611)
+  Rendered friends/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 739)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 51.6ms | Allocations: 5326)
+Completed 200 OK in 61ms (Views: 53.2ms | ActiveRecord: 2.4ms | Allocations: 7262)
+
+
+Started POST "/friends" for 127.0.0.1 at 2021-06-24 09:51:42 +0530
+Processing by FriendsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Apple", "last_name"=>"Apple", "email"=>"apple@gmail.com", "phone"=>"31231", "colour"=>"red", "user_id"=>"1"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mFriend Create (2.3ms)[0m  [1m[32mINSERT INTO `friends` (`first_name`, `last_name`, `email`, `phone`, `colour`, `created_at`, `updated_at`, `user_id`) VALUES ('Apple', 'Apple', 'apple@gmail.com', '31231', 'red', '2021-06-24 04:21:42.208354', '2021-06-24 04:21:42.208354', 1)[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (86.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/friends/2
+Completed 302 Found in 108ms (ActiveRecord: 93.7ms | Allocations: 4160)
+
+
+Started GET "/friends/2" for 127.0.0.1 at 2021-06-24 09:51:42 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFriend Load (3.2ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 149)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 5.4ms | Allocations: 1179)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 90.2ms | Allocations: 5847)
+Completed 200 OK in 114ms (Views: 94.1ms | ActiveRecord: 5.5ms | Allocations: 7031)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 09:51:45 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.6ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  Rendered friends/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3472)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 180)
+  Rendered layout layouts/application.html.erb (Duration: 85.7ms | Allocations: 8059)
+Completed 200 OK in 88ms (Views: 79.6ms | ActiveRecord: 7.7ms | Allocations: 8588)
+
+
+Started GET "/friends/new" for 127.0.0.1 at 2021-06-24 09:51:47 +0530
+Processing by FriendsController#new as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering friends/new.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 1.1ms | Allocations: 609)
+  Rendered friends/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 47.5ms | Allocations: 5322)
+Completed 200 OK in 56ms (Views: 48.8ms | ActiveRecord: 2.1ms | Allocations: 7239)
+
+
+Started POST "/friends" for 127.0.0.1 at 2021-06-24 09:52:19 +0530
+Processing by FriendsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Strawberry", "last_name"=>"Strawberry", "email"=>"straberry@gmail.com", "phone"=>"456", "colour"=>"red", "user_id"=>"1"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mFriend Create (2.0ms)[0m  [1m[32mINSERT INTO `friends` (`first_name`, `last_name`, `email`, `phone`, `colour`, `created_at`, `updated_at`, `user_id`) VALUES ('Strawberry', 'Strawberry', 'straberry@gmail.com', '456', 'red', '2021-06-24 04:22:19.645036', '2021-06-24 04:22:19.645036', 1)[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (51.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/friends/3
+Completed 302 Found in 68ms (ActiveRecord: 57.3ms | Allocations: 4164)
+
+
+Started GET "/friends/3" for 127.0.0.1 at 2021-06-24 09:52:19 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFriend Load (2.1ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 149)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 5.6ms | Allocations: 1179)
+  Rendered layouts/_alerts.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 53.3ms | Allocations: 5848)
+Completed 200 OK in 61ms (Views: 51.8ms | ActiveRecord: 5.0ms | Allocations: 7033)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 09:52:25 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.3ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  Rendered friends/index.html.erb within layouts/application (Duration: 66.9ms | Allocations: 4180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 180)
+  Rendered layout layouts/application.html.erb (Duration: 122.2ms | Allocations: 8767)
+Completed 200 OK in 125ms (Views: 117.0ms | ActiveRecord: 6.9ms | Allocations: 9296)
+
+
+Started GET "/friends/new" for 127.0.0.1 at 2021-06-24 09:52:33 +0530
+Processing by FriendsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering friends/new.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 1.1ms | Allocations: 609)
+  Rendered friends/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 179)
+  Rendered layout layouts/application.html.erb (Duration: 51.1ms | Allocations: 5322)
+Completed 200 OK in 60ms (Views: 52.4ms | ActiveRecord: 2.2ms | Allocations: 7239)
+
+
+Started POST "/friends" for 127.0.0.1 at 2021-06-24 09:53:04 +0530
+Processing by FriendsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Mango", "last_name"=>"Mango", "email"=>"mango@gmail.com", "phone"=>"789", "colour"=>"yellow", "user_id"=>"1"}, "commit"=>"Create Friend"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mFriend Create (2.1ms)[0m  [1m[32mINSERT INTO `friends` (`first_name`, `last_name`, `email`, `phone`, `colour`, `created_at`, `updated_at`, `user_id`) VALUES ('Mango', 'Mango', 'mango@gmail.com', '789', 'yellow', '2021-06-24 04:23:04.237684', '2021-06-24 04:23:04.237684', 1)[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (83.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friends_controller.rb:31:in `block in create'
+Redirected to http://127.0.0.1:3000/friends/4
+Completed 302 Found in 104ms (ActiveRecord: 89.6ms | Allocations: 4155)
+
+
+Started GET "/friends/4" for 127.0.0.1 at 2021-06-24 09:53:04 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mFriend Load (2.4ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 149)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 5.7ms | Allocations: 1179)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 52.7ms | Allocations: 5847)
+Completed 200 OK in 60ms (Views: 51.0ms | ActiveRecord: 5.1ms | Allocations: 7031)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 09:53:06 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.3ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  Rendered friends/index.html.erb within layouts/application (Duration: 41.0ms | Allocations: 4890)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 2.7ms | Allocations: 180)
+  Rendered layout layouts/application.html.erb (Duration: 123.1ms | Allocations: 9505)
+Completed 200 OK in 126ms (Views: 118.1ms | ActiveRecord: 7.3ms | Allocations: 10034)
+
+
+Started GET "/friends/2" for 127.0.0.1 at 2021-06-24 09:53:13 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFriend Load (2.2ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 149)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 5.5ms | Allocations: 1179)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 5736)
+Completed 200 OK in 63ms (Views: 54.0ms | ActiveRecord: 4.7ms | Allocations: 6918)
+
+
+Started GET "/friends/2/edit" for 127.0.0.1 at 2021-06-24 09:53:14 +0530
+Processing by FriendsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFriend Load (2.2ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriend Load (2.5ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1 AND `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:63:in `correct_user'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/edit.html.erb within layouts/application
+  Rendered friends/_form.html.erb (Duration: 1.4ms | Allocations: 682)
+  Rendered friends/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 998)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 57.2ms | Allocations: 5590)
+Completed 200 OK in 78ms (Views: 58.9ms | ActiveRecord: 7.5ms | Allocations: 9046)
+
+
+Started PATCH "/friends/2" for 127.0.0.1 at 2021-06-24 09:53:21 +0530
+Processing by FriendsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "friend"=>{"first_name"=>"Apple", "last_name"=>"Apple", "email"=>"apple@gmail.com", "phone"=>"312", "colour"=>"red", "user_id"=>"1"}, "commit"=>"Update Friend", "id"=>"2"}
+  [1m[36mFriend Load (2.3ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mFriend Load (2.2ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`user_id` = 1 AND `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:63:in `correct_user'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/friends_controller.rb:44:in `block in update'
+  [1m[36mFriend Update (2.4ms)[0m  [1m[33mUPDATE `friends` SET `friends`.`phone` = '312', `friends`.`updated_at` = '2021-06-24 04:23:21.915871' WHERE `friends`.`id` = 2[0m
+  ↳ app/controllers/friends_controller.rb:44:in `block in update'
+  [1m[36mTRANSACTION (91.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/friends_controller.rb:44:in `block in update'
+Redirected to http://127.0.0.1:3000/friends/2
+Completed 302 Found in 121ms (ActiveRecord: 103.5ms | Allocations: 5687)
+
+
+Started GET "/friends/2" for 127.0.0.1 at 2021-06-24 09:53:22 +0530
+Processing by FriendsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFriend Load (2.4ms)[0m  [1m[34mSELECT `friends`.* FROM `friends` WHERE `friends`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/friends_controller.rb:69:in `set_friend'
+  Rendering layout layouts/application.html.erb
+  Rendering friends/show.html.erb within layouts/application
+  Rendered friends/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/_header.html.erb:17
+  Rendered home/_header.html.erb (Duration: 5.0ms | Allocations: 1179)
+  Rendered layouts/_alerts.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 52.2ms | Allocations: 5848)
+Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 4.9ms | Allocations: 7033)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 09:53:23 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:4
+  [1m[36mFriend Load (2.4ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:18
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:19
+  Rendered friends/index.html.erb within layouts/application (Duration: 28.9ms | Allocations: 4890)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 0.2ms | Allocations: 180)
+  Rendered layout layouts/application.html.erb (Duration: 75.9ms | Allocations: 9477)
+Completed 200 OK in 78ms (Views: 69.6ms | ActiveRecord: 7.7ms | Allocations: 10006)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:09:56 +0530
+  
+SyntaxError (C:/railsfriends/friends/app/controllers/friends_controller.rb:11: else without rescue is useless
+    else
+    ^~~~):
+  
+app/controllers/friends_controller.rb:11: else without rescue is useless
+app/controllers/friends_controller.rb:11: else without rescue is useless
+app/controllers/friends_controller.rb:11: else without rescue is useless
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:12:41 +0530
+  
+SyntaxError (C:/railsfriends/friends/app/controllers/friends_controller.rb:11: else without rescue is useless
+    else
+    ^~~~):
+  
+app/controllers/friends_controller.rb:11: else without rescue is useless
+app/controllers/friends_controller.rb:11: else without rescue is useless
+app/controllers/friends_controller.rb:11: else without rescue is useless
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:16:21 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1307)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+	scope :filter_by_colour, -> (search_str) { where("col...
+	                           ^~
+C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+... { where("colour like ?", "%#{search_str}%")}
+...                               ^
+C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ')', expecting end
+... like ?", "%#{search_str}%")}
+...                              ^):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ')', expecting end
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ')', expecting end
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ')', expecting end
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:20:36 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 1287)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("twi...
+...                              ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:21:29 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1279)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("col...
+...                             ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:24:53 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 1273)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input):
+  
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:25:40 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1273)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input):
+  
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:4: syntax error, unexpected end, expecting end-of-input
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:26:26 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 1269)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:3: syntax error, unexpected end, expecting end-of-input):
+  
+app/models/friend.rb:3: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:3: syntax error, unexpected end, expecting end-of-input
+app/models/friend.rb:3: syntax error, unexpected end, expecting end-of-input
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:26:52 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1426)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1513)
+Completed 500 Internal Server Error in 18ms (Allocations: 3401)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+
+<h1>Friend List</h1>
+
+  <%= form_tag('/friends', method: 'get') do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag("Search", name: nil) %>
+  <% end %>
+
+
+<%if user_signed_in? %>
+
+  <table class="table table-striped table-bordered border-primary table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>        
+        <th>Email</th>
+        <th>Phone</th>
+        <th>colour</th>              
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to friend.first_name + ' ' + friend.last_name , friend %>                          
+            </td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.colour %></td>                                      
+            
+            <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          
+          </tr>
+        <%end%>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+<% else %>
+  <h1>Rails hosted</h1>
+  
+  
+  
+<% end %>
+
+
+
+):
+1:    
+2:    
+3:    <h1>Friend List</h1>
+4:    
+5:      <%= form_tag('/friends', method: 'get') do %>
+6:        <%= text_field_tag(:search, params[:search]) %>
+7:        <%= submit_tag("Search", name: nil) %>
+8:      <% end %>
+9:    
+10:    
+11:    <%if user_signed_in? %>
+12:    
+13:      <table class="table table-striped table-bordered border-primary table-hover">
+14:        <thead class="thead-dark">
+15:          <tr>
+16:            <th>Name</th>        
+17:            <th>Email</th>
+18:            <th>Phone</th>
+19:            <th>colour</th>              
+20:            <th> </th>
+21:          </tr>
+22:        </thead>
+23:    
+24:        <tbody>
+25:          <% @friends.each do |friend| %>
+26:            <% if friend.user == current_user %>
+27:              <tr>
+28:                <td>
+29:                  <%= link_to friend.first_name + ' ' + friend.last_name , friend %>                          
+30:                </td>
+31:                <td><%= friend.email %></td>
+32:                <td><%= friend.phone %></td>
+33:                <td><%= friend.colour %></td>                                      
+34:                
+35:                <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+36:              
+37:              </tr>
+38:            <%end%>
+39:          <% end %>
+40:        </tbody>
+41:      </table>
+42:    
+43:      <br>
+44:    
+45:      <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+46:    <% else %>
+47:      <h1>Rails hosted</h1>
+48:      
+49:      
+50:      
+51:    <% end %>
+  
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:5: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:27:55 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:11
+  [1m[36mFriend Load (2.8ms)[0m  [1m[34mSELECT `friends`.* FROM `friends`[0m
+  ↳ app/views/friends/index.html.erb:25
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/friends/index.html.erb:26
+  Rendered friends/index.html.erb within layouts/application (Duration: 80.5ms | Allocations: 15392)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 558)
+  Rendered layout layouts/application.html.erb (Duration: 147.1ms | Allocations: 20684)
+Completed 200 OK in 160ms (Views: 156.7ms | ActiveRecord: 10.1ms | Allocations: 22063)
+
+
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:29:34 +0530
+Processing by FriendsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering friends/index.html.erb within layouts/application
+  Rendered friends/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1397)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1483)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 2835)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+
+<h1>Friend List</h1>
+
+<%if user_signed_in? %>
+
+  <%= form_tag('/friends', method: 'get') do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag("Search", name: nil) %>
+  <% end %>
+
+  <table class="table table-striped table-bordered border-primary table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>        
+        <th>Email</th>
+        <th>Phone</th>
+        <th>colour</th>              
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to friend.first_name + ' ' + friend.last_name , friend %>                          
+            </td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.colour %></td>                                      
+            
+            <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          
+          </tr>
+        <%end%>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+<% else %>
+  <h1>Rails hosted</h1>
+  
+  
+  
+<% end %>
+
+
+
+):
+1:    
+2:    
+3:    <h1>Friend List</h1>
+4:    
+5:    <%if user_signed_in? %>
+6:    
+7:      <%= form_tag('/friends', method: 'get') do %>
+8:        <%= text_field_tag(:search, params[:search]) %>
+9:        <%= submit_tag("Search", name: nil) %>
+10:      <% end %>
+11:    
+12:      <table class="table table-striped table-bordered border-primary table-hover">
+13:        <thead class="thead-dark">
+14:          <tr>
+15:            <th>Name</th>        
+16:            <th>Email</th>
+17:            <th>Phone</th>
+18:            <th>colour</th>              
+19:            <th> </th>
+20:          </tr>
+21:        </thead>
+22:    
+23:        <tbody>
+24:          <% @friends.each do |friend| %>
+25:            <% if friend.user == current_user %>
+26:              <tr>
+27:                <td>
+28:                  <%= link_to friend.first_name + ' ' + friend.last_name , friend %>                          
+29:                </td>
+30:                <td><%= friend.email %></td>
+31:                <td><%= friend.phone %></td>
+32:                <td><%= friend.colour %></td>                                      
+33:                
+34:                <td><%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+35:              
+36:              </tr>
+37:            <%end%>
+38:          <% end %>
+39:        </tbody>
+40:      </table>
+41:    
+42:      <br>
+43:    
+44:      <%= link_to 'New Friend', new_friend_path, class:"btn btn-secondary" %>
+45:    <% else %>
+46:      <h1>Rails hosted</h1>
+47:      
+48:      
+49:      
+50:    <% end %>
+  
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:7: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/friends/index.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting end
+app/views/friends/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/friends/index.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:32:17 +0530
+  
+SyntaxError (C:/railsfriends/friends/app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:33:31 +0530
+  
+SyntaxError (C:/railsfriends/friends/app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:34:06 +0530
+  
+SyntaxError (C:/railsfriends/friends/app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/friends_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:34:33 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 1300)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("col...
+...                             ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:38:03 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms | Allocations: 3446)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("col...
+...                             ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/friends" for 127.0.0.1 at 2021-06-24 10:38:58 +0530
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 2258)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("col...
+...                             ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
+Started GET "/" for 127.0.0.1 at 2021-06-24 10:39:06 +0530
+Processing by FriendsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1223)
+
+
+  
+SyntaxError (C:/railsfriends/friends/app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+... scope :filter_by_colour, -> (search_str) { where("col...
+...                             ^~):
+  
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/models/friend.rb:2: syntax error, unexpected ->, expecting do or '{' or '('
+app/controllers/friends_controller.rb:12:in `index'
